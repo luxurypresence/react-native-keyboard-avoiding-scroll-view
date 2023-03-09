@@ -13,14 +13,14 @@ React Native ScrollView extension that prevents inputs from being covered by the
 
 ## Getting started
 
-`$ npm install react-native-keyboard-avoiding-scroll-view --save`
+`$ yarn add @cassianosch/react-native-keyboard-sticky-footer-avoiding-scroll-view`
 
 ## Usage
 
 Import `KeyboardAvoidingScrollView`, `KeyboardAvoidingFlatList`, or `KeyboardAvoidingSectionList` and use them like the regular `ScrollView`, `FlatList` or `SectionList` components from React Native core. Internally, these components are wrapped in another custom component called `KeyboardAvoidingContainer`, which is also exported for advanced use cases.
 
 ```javascript
-import {KeyboardAvoidingScrollView} from 'react-native-keyboard-avoiding-scroll-view';
+import {KeyboardAvoidingScrollView} from '@cassianosch/react-native-keyboard-sticky-footer-avoiding-scroll-view';
 
 function MyComponent() {
   return (
