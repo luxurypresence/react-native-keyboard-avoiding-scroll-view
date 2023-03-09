@@ -294,7 +294,7 @@ export function useKeyboardAvoidingContainerProps<
     const sub = textInputEvents.addListener(
       'textInputDidFocus',
       newFocusedTextInputNodeHandle => {
-        requestAnimationFrame(async () => {
+        ;(async () => {
           if (
             !keyboardLayoutRef.current ||
             !focusedTextInputLayoutRef.current
@@ -316,7 +316,7 @@ export function useKeyboardAvoidingContainerProps<
             : newFocusedTextInputLayout
 
           updateOffsets()
-        })
+        })()
       },
     )
 
