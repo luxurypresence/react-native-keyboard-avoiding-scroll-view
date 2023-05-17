@@ -30,6 +30,7 @@ const KEYBOARD_PADDING = 48
 export interface ExternalKeyboardAvoidingContainerProps {
   stickyFooter?: React.ReactNode
   containerStyle?: StyleProp<ViewStyle>
+  captureRef?: (reference: React.Ref<any>) => void
 }
 export interface InternalKeyboardAvoidingContainerProps<
   TScrollViewProps extends ScrollViewProps
@@ -74,7 +75,7 @@ export function useKeyboardAvoidingContainerProps<
 >({
   stickyFooter,
   containerStyle,
-
+  captureRef,
   onScroll,
   contentContainerStyle: contentContainerStyleProp,
   style: styleProp,
@@ -100,6 +101,12 @@ export function useKeyboardAvoidingContainerProps<
   ] = useState(0)
   const [scrollViewBottomInset, setScrollViewBottomInset] = useState(0)
   const [stickyFooterOffset, setStickyFooterOffset] = useState(0)
+
+  useEffect(() => {
+    if (captureRef) {
+      captureRef(scrollViewRef)
+    }
+  }, [captureRef])
 
   useEffect(() => {
     requestAnimationFrame(() => {
